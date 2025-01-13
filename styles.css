@@ -1,0 +1,405 @@
+/* Color Palette */
+:root {
+    /* Dark Theme Colors */
+    --dark-bg: #121212;
+    --dark-text: #ffffff;
+    --dark-accent: #4CB944;
+    --dark-secondary: #F06543;
+    --dark-border: #333;
+    --dark-card-bg: #2C2C2C;
+    --dark-shadow: rgba(0, 0, 0, 0.3);
+
+    /* Light Theme Colors */
+    --light-bg: #ffffff;
+    --light-text: #333;
+    --light-accent: #4CB944;
+    --light-secondary: #F06543;
+    --light-border: #ddd;
+    --light-card-bg: #ffffff;
+    --light-shadow: rgba(0, 0, 0, 0.1);
+
+    /* Common Colors */
+    --gradient-primary: linear-gradient(45deg, var(--dark-accent), var(--dark-secondary));
+    --gradient-light: linear-gradient(to bottom, var(--light-bg), #f4f4f4);
+    --gradient-dark: linear-gradient(to bottom, var(--dark-bg), #1E1E1E);
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background: var(--dark-bg);
+    transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background: var(--light-bg);
+    color: var(--light-text);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background: rgba(18, 18, 18, 0.9);
+    color: var(--dark-text);
+    padding: 20px 0;
+    box-shadow: 0 4px 8px var(--dark-shadow);
+    position: fixed;
+    width: 90%;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    border-radius: 10px;
+    transition: background 0.3s, box-shadow 0.3s;
+    text-align: center;
+    font-weight: bold;
+}
+
+body.light-mode header {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--light-text);
+}
+
+header.scrolled {
+    background: rgba(18, 18, 18, 0.95);
+    box-shadow: 0 6px 12px var(--dark-shadow);
+}
+
+body.light-mode header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--dark-accent);
+}
+
+header nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li {
+    padding: 5px 10px;
+}
+
+header nav ul li a {
+    color: var(--dark-text);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+body.light-mode header nav ul li a {
+    color: var(--light-text);
+}
+
+header nav ul li a:hover {
+    color: var(--dark-accent);
+}
+
+.cta-btn {
+    background: var(--dark-accent);
+    color: var(--dark-text);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+    font-weight: bold;
+}
+
+body.light-mode .cta-btn {
+    color: var(--light-text);
+}
+
+.cta-btn:hover {
+    background: var(--dark-secondary);
+    transform: scale(1.05);
+}
+
+/* Theme Toggle Button */
+.theme-toggle,
+.language-toggle {
+    background: var(--dark-accent);
+    color: var(--dark-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+    margin-left: 10px;
+}
+
+.theme-toggle:hover,
+.language-toggle:hover {
+    background: var(--dark-secondary);
+    transform: scale(1.05);
+}
+
+/* Hero Section */
+.hero {
+    background: var(--gradient-dark);
+    text-align: center;
+    padding: 150px 20px;
+    color: var(--dark-text);
+    animation: fadeIn 2s ease-in-out;
+    will-change: opacity;
+    margin-top: 80px; /* Adjust for fixed header */
+}
+
+body.light-mode .hero {
+    background: var(--gradient-light);
+    color: var(--light-text);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #cccccc;
+}
+
+body.light-mode .hero p {
+    color: #666;
+}
+
+.hero .cta-btn {
+    font-size: 1.5rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Features Section */
+.features {
+    background: var(--dark-card-bg);
+    color: var(--dark-text);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+body.light-mode .features {
+    background: var(--light-card-bg);
+    color: var(--light-text);
+}
+
+.features .feature {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid var(--dark-border);
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: var(--dark-card-bg);
+}
+
+body.light-mode .features .feature {
+    border: 1px solid var(--light-border);
+    background: var(--light-card-bg);
+}
+
+.features .feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px var(--dark-shadow);
+}
+
+.features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--dark-accent);
+}
+
+/* Testimonials Section */
+.testimonials {
+    background: var(--dark-card-bg);
+    color: var(--dark-text);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+body.light-mode .testimonials {
+    background: var(--light-card-bg);
+    color: var(--light-text);
+}
+
+.testimonials h2 {
+    margin-bottom: 30px;
+    color: var(--dark-accent);
+}
+
+.testimonials p {
+    color: #cccccc;
+    font-style: italic;
+}
+
+body.light-mode .testimonials p {
+    color: #666;
+}
+
+/* Call-to-Action Section */
+.cta {
+    background: var(--gradient-primary);
+    color: var(--dark-text);
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta .cta-btn {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+}
+
+/* Footer */
+footer {
+    background: var(--dark-card-bg);
+    color: var(--dark-text);
+    text-align: center;
+    padding: 20px;
+}
+
+body.light-mode footer {
+    background: var(--light-card-bg);
+    color: var(--light-text);
+}
+
+footer a {
+    color: var(--dark-accent);
+}
+
+footer a:hover {
+    color: var(--dark-secondary);
+}
+
+/* Contact Card Section */
+.contact-card {
+    background: var(--dark-card-bg);
+    color: var(--dark-text);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+body.light-mode .contact-card {
+    background: var(--light-card-bg);
+    color: var(--light-text);
+}
+
+.contact-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--dark-accent);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid var(--dark-border);
+    border-radius: 10px;
+    background: var(--dark-card-bg);
+    color: var(--dark-text);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+body.light-mode .contact-form input,
+body.light-mode .contact-form textarea {
+    border: 1px solid var(--light-border);
+    background: var(--light-card-bg);
+    color: var(--light-text);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--dark-accent);
+    outline: none;
+    box-shadow: 0 0 8px var(--dark-accent);
+}
+
+body.light-mode .contact-form input:focus,
+body.light-mode .contact-form textarea:focus {
+    border-color: var(--light-accent);
+    box-shadow: 0 0 8px var(--light-accent);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    background: var(--dark-accent);
+    color: var(--dark-text);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+body.light-mode .contact-form button {
+    background: var(--light-accent);
+    color: var(--light-text);
+}
+
+.contact-form button:hover {
+    background: var(--dark-secondary);
+    transform: scale(1.05);
+}
+
+body.light-mode .contact-form button:hover {
+    background: var(--light-secondary);
+}
